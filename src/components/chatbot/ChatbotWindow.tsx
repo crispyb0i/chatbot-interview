@@ -6,7 +6,7 @@ import MessageInput from './MessageInput';
 import { useTimer } from '../../hooks/useTimer';
 
 const ChatbotWindow: React.FC = () => {
-  const { isChatOpen, setIsChatOpen, clearMessages } = useAppContext();
+  const { setIsChatOpen, clearMessages } = useAppContext();
   const { seconds, resetTimer } = useTimer();
   const [mounted, setMounted] = useState(false);
 

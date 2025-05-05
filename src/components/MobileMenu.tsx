@@ -29,7 +29,7 @@ const MobileMenu: React.FC = () => {
     <div className="sm:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-4 left-4 z-20 p-2 rounded-md bg-white shadow-md"
+        className="fixed top-4 left-4 z-20 p-1 rounded-md bg-white shadow-md"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>

@@ -8,7 +8,7 @@ export const useTimer = () => {
     let interval: number | undefined;
 
     if (isActive) {
-      interval = window.setInterval(() => {
+      interval = setInterval(() => {
         setSeconds(prev => prev + 1);
       }, 1000);
     } else if (!isActive && seconds !== 0) {

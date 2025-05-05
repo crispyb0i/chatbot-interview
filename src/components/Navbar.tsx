@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="bg-white shadow-sm h-16 px-4 flex items-center justify-between z-10">
       <div className="flex items-center">
-        <div className="text-2xl font-bold text-indigo-600 flex items-center">
+        <div className="mr-4 text-2xl font-bold text-indigo-600 flex items-center">
           <span className="bg-indigo-600 text-white rounded-lg p-1 mr-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"

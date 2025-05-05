@@ -25,7 +25,7 @@ const MessageInput: React.FC = () => {
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          className="flex-1 border border-gray-300 rounded-l-lg py-2 px-4 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="flex-1 border border-gray-300 rounded-l-lg py-1.5 px-4 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           placeholder="Type a message..."
           aria-label="Type a message"
         />
@@ -35,7 +35,7 @@ const MessageInput: React.FC = () => {
           disabled={!inputValue.trim()}
           aria-label="Send message"
         >
-          <Send size={20} />
+          <Send size={22} />
         </button>
       </div>
     </form>
