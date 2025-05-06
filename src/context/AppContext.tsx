@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useRef } from 'react';
 
 // Types
 export type MenuPage = 'apps' | 'documents';
@@ -19,6 +19,7 @@ interface AppContextType {
   clearMessages: () => void;
   isChatOpen: boolean;
   setIsChatOpen: (isOpen: boolean) => void;
+  isBotTyping: boolean;
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -46,6 +47,8 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   });
   
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isBotTyping, setIsBotTyping] = useState(false);
+  const botResponseTimeoutRef = useRef<number | null>(null);
 
   // Save state to localStorage when it changes
   useEffect(() => {
@@ -55,6 +58,15 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   useEffect(() => {
     localStorage.setItem('chatMessages', JSON.stringify(messages));
   }, [messages]);
+
+  // Cleanup timeout on unmount or when messages are cleared
+  useEffect(() => {
+    return () => {
+      if (botResponseTimeoutRef.current) {
+        clearTimeout(botResponseTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const addMessage = (text: string, sender: 'user' | 'bot') => {
     const newMessage: Message = {
@@ -67,24 +79,38 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
     
     // If this is a user message, generate a bot response
     if (sender === 'user') {
-      setTimeout(() => {
-        const botResponses = [
-          "I understand your point. Let me think about that.",
-          "That's an interesting perspective.",
-          "I'll look into that for you.",
-          "Thanks for sharing that information.",
-          "Let me see what I can find about that.",
-          "I'm processing your request now.",
-          "Could you provide more details?",
-          "I'm here to help with any questions you have.",
-        ];
+      // Clear any existing timeout
+      if (botResponseTimeoutRef.current) {
+        clearTimeout(botResponseTimeoutRef.current);
+      }
+
+      setIsBotTyping(true);
+      const botResponses = [
+        "I understand your point. Let me think about that.",
+        "That's an interesting perspective.",
+        "I'll look into that for you.",
+        "Thanks for sharing that information.",
+        "Let me see what I can find about that.",
+        "I'm processing your request now.",
+        "Could you provide more details?",
+        "I'm here to help with any questions you have.",
+      ];
+      
+      botResponseTimeoutRef.current = window.setTimeout(() => {
         const randomResponse = botResponses[Math.floor(Math.random() * botResponses.length)];
         addMessage(randomResponse, 'bot');
+        setIsBotTyping(false);
       }, 1000);
     }
   };
 
   const clearMessages = () => {
+    // Clear any pending bot response
+    if (botResponseTimeoutRef.current) {
+      clearTimeout(botResponseTimeoutRef.current);
+      botResponseTimeoutRef.current = null;
+    }
+    setIsBotTyping(false);
     setMessages([]);
   };
 
@@ -100,6 +126,7 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         clearMessages,
         isChatOpen,
         setIsChatOpen,
+        isBotTyping,
       }}
     >
       {children}
