@@ -66,24 +66,22 @@ npm run dev
 - Used localStorage to persist chat history between page refreshes
 
 ### Performance Considerations
-- Implemented lazy loading for components where appropriate
-- Used React.memo for performance optimization
 - Minimized re-renders through proper state management
 
 ### Accessibility
 - Added proper ARIA labels for interactive elements
-- Ensured keyboard navigation support
 - Maintained proper color contrast ratios
 
 ## Project Structure
 
 ```
 src/
-├── components/         # Reusable UI components
-│   ├── chatbot/       # Chatbot-specific components
+├── components/       # Reusable UI components
+│   ├── chatbot/      # Chatbot-specific components
 │   └── ...           # Other components
-├── context/           # React Context providers
+├── context/          # React Context providers
 ├── hooks/            # React Hooks
+├── hooks/            # React Utilities
 └── App.tsx           # Main application component
 ```
 
