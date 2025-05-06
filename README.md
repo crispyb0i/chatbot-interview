@@ -2,6 +2,10 @@
 
 A modern, responsive chatbot interface built with React, TypeScript, and Tailwind CSS. This project provides a clean and intuitive user experience for interacting with a chatbot.
 
+## Live Demo
+
+Check out the live demo at [https://chatbot-interview.vercel.app/](https://chatbot-interview.vercel.app/)
+
 ## Features
 
 - 🎨 Modern UI with Tailwind CSS
