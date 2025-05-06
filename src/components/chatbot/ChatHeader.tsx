@@ -8,15 +8,17 @@ interface ChatHeaderProps {
 }
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ seconds, onClose, onReset }) => {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
+
   // Format seconds as mm:ss
-  const formatTime = (seconds: number): string => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+  const formatTime = (totalSeconds: number): string => {
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   return (
-    <div className="bg-indigo-600 text-white p-4 rounded-t-lg flex items-center justify-between">
+    <div className={`bg-indigo-600 text-white p-4 ${!isMobile ? 'rounded-t-lg' : ''} flex items-center justify-between`}>
       <button
         onClick={onReset}
         className="p-2 hover:bg-indigo-700 rounded-full transition-colors"

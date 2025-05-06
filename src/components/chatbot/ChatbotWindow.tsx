@@ -30,7 +30,7 @@ const ChatbotWindow: React.FC = () => {
 
   return (
     <div
-      className={`fixed z-30 bg-white shadow-xl transition-all duration-300 ease-in-out ${
+      className={`fixed z-40 bg-white shadow-xl transition-all duration-300 ease-in-out ${
         mounted
           ? 'opacity-100 transform translate-y-0'
           : 'opacity-0 transform translate-y-8'
