@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Chat Bubble -->
+  <path d="M40 40C30 40 20 50 20 60V140C20 150 30 160 40 160H160C170 160 180 150 180 140V60C180 50 170 40 160 40H40Z" fill="#4F46E5"/>
+  
+  <!-- Message Lines -->
+  <path d="M60 80H140" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <path d="M60 100H120" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  <path d="M60 120H100" stroke="white" stroke-width="10" stroke-linecap="round"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="100" cy="100" r="6" fill="#4F46E5"/>
+  <circle cx="100" cy="100" r="12" fill="#4F46E5" fill-opacity="0.2"/>
+</svg> 

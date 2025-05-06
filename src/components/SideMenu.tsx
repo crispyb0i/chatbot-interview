@@ -20,10 +20,7 @@ const SideMenu: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white w-56 border-r border-gray-200 py-6 hidden sm:block">
-      <div className="px-4 mb-6">
-        <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Menu</h2>
-      </div>
+    <div className="bg-white w-56 border-r border-gray-200 py-20 hidden sm:block">
       <nav className="space-y-1 px-2">
         {menuItems.map((item) => (
           <button

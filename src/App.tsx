@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppContextProvider } from './context/AppContext';
 import Layout from './components/Layout';
 
