@@ -10,13 +10,6 @@ interface ChatHeaderProps {
 const ChatHeader: React.FC<ChatHeaderProps> = ({ seconds, onClose, onReset }) => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 640;
 
-  // Format seconds as mm:ss
-  const formatTime = (totalSeconds: number): string => {
-    const minutes = Math.floor(totalSeconds / 60);
-    const seconds = totalSeconds % 60;
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
-
   return (
     <div className={`bg-indigo-600 text-white p-4 ${!isMobile ? 'rounded-t-lg' : ''} flex items-center justify-between`}>
       <button
@@ -28,7 +21,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ seconds, onClose, onReset }) =>
       </button>
       
       <div className="font-medium">
-        {formatTime(seconds)}
+        {seconds}s
       </div>
       
       <button
