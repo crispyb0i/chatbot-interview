@@ -86,14 +86,26 @@ export const AppContextProvider: React.FC<{ children: React.ReactNode }> = ({ ch
 
       setIsBotTyping(true);
       const botResponses = [
-        "I understand your point. Let me think about that.",
-        "That's an interesting perspective.",
-        "I'll look into that for you.",
-        "Thanks for sharing that information.",
-        "Let me see what I can find about that.",
-        "I'm processing your request now.",
-        "Could you provide more details?",
-        "I'm here to help with any questions you have.",
+        "Ooh, that's fascinating! Let me process that for a sec... 🤔",
+        "Wow, I love this conversation! Give me a moment to think... 💭",
+        "That's such an interesting point! *adjusts virtual glasses* Let me think about that... 👓",
+        "You've got my circuits buzzing with that one! Let me gather my thoughts... ⚡",
+        "Hold on to your keyboard, I'm cooking up a response! 🧠",
+        "That's a spicy take! Let me marinate on that for a second... 🌶️",
+        "You're speaking my language! Just need a moment to translate... 🌐",
+        "My digital brain is doing backflips over this! 🤸‍♂️",
+        "That's got me all excited! Let me organize my thoughts... 🎉",
+        "You've activated my curiosity circuits! Processing... 🔄",
+        "That's a real brain-tickler! Let me think about that... 🤯",
+        "My processors are doing the happy dance! Give me a sec... 💃",
+        "You've got my attention! Let me put on my thinking cap... 🎩",
+        "That's a real zinger! My circuits are buzzing... 🐝",
+        "You're making my digital heart race! Let me catch my breath... 💓",
+        "That's a real head-scratcher! Let me think about that... 🤔",
+        "My virtual gears are turning! Processing your thought... ⚙️",
+        "You've got my neurons firing! Let me organize my response... 🧠",
+        "That's a real conversation starter! Let me add my two cents... 💰",
+        "My digital mind is blown! Let me pick up the pieces... 💥"
       ];
       
       botResponseTimeoutRef.current = window.setTimeout(() => {
